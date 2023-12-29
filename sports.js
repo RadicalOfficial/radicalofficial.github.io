@@ -148,10 +148,6 @@
             text: "days until Super Bowl",
           },
           {
-            blockType: "label",
-            text: "Live Scores (Beta)",
-          },
-          {
             opcode: "livescore",
             blockType: Scratch.BlockType.REPORTER,
             text: "live scores in [GAME]",
@@ -328,7 +324,7 @@
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "5a2d8acca5msh6a7b6d8a42ef48cp129a36jsn8a6de92371c4",
+            "",
           "X-RapidAPI-Host": "livescore6.p.rapidapi.com",
         },
       };
