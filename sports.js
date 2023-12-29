@@ -1,8 +1,6 @@
 (function (Scratch) {
   "use strict";
 
-  // https://turbowarp.org/editor?extension=https://tw.knightbot63.repl.co/sports.js
-  // To Do: Start other teams for more blocks possibly.
   var apiKey = "";
   var teamdata = "";
   var setteamnfl = "";
