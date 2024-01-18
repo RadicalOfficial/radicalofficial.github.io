@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Compare Follower Counts</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/odometer-theme-default.css" type="text/css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="index.html">Back to Live Counts</a>
+  </div>
+  <br><br>
+  <h4 id="header" style="text-align: center; color: white; font-weight: 990;">Compare Live Counts</h5>
+  <div class="flex-container" id="battle">
+    <div class="first" id="first">
+    <div class="container">
+      <img id="user-icon"></img>
+    <h5 id="username" style="text-transform: none;">Enter a username...</h5>
+      <div class="odometer-parent">
+        <div id="odometer" class="odometer">000000</div>
+      </div>
+    </div>
+  </div>
+  <div class="second">
+    <div class="container">
+        <img id="user-icon2"></img>
+      <h5 id="username2" style="text-transform: none;">Enter a username...</h5>
+        <div class="odometer-parent">
+          <div id="odometer2" class="odometer">000000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <h4 id="subgap">Difference:</h4>
+  <div class="odometer-parent"><h5 id="difference" class="odometer"></h5></div>
+  <input placeholder="First user" id="firstu">
+  <button type="submit" onclick="first()" id="firstuserbattle">Enter</button>
+  <br>
+  <input placeholder="Second user" id="secondu">
+  <button type="submit" onclick="second()" id="seconduserbattle">Enter</button>
+
+  <br><br>
+  <button onclick="compareUsers()" id="compare">Compare Users</button>
+
+  <script src="odometer.js"></script>
+  <script type="text/javascript" src="battle.js"></script>
+
+</body>
+
+</html>
