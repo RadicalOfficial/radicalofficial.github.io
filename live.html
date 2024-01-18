@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Live Counts</title>
+  <link href="live.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="odometer-theme-default.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!--- Fetching the Rank: https://scratchdb.lefty.one/v3/user/rank/ --->
+
+<body>
+  <br><br><br><br>
+  <div class="navbar">
+    <a href="index.html">Live Follower Count</a>
+    <a href="battle.html">Battle / Compare</a>
+    <input type="text" placeholder="Search a user" class="search-container" id="search">
+  </div>
+  <div class="container">
+    <img id="user-icon" title="See user on Scratch"></img>
+    <h3 id="username">Loading...</h3>
+    <div class="odometer-parent">
+      <div id="odometer" class="odometer">000000</div>
+    </div>
+    <h6 id="nofoundul">The estimated count may not be accurate as the real one.</h6> <!----- Commented out because of API update errors
+    <h4 style="text-transform: none; text-align: center; color: white;">Goal:</h4>
+    <div class="odometer-parent">
+      <div id="goalodometer" class="odometer">000,000</div>
+    </div>
+    <br> ----->
+    </div>
+  </div>
+
+  <script src="odometer.js"></script>
+  <script type="text/javascript" src="live.js"></script>
+</body>
+
+</html>
