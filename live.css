@@ -1,0 +1,173 @@
+/*@keyframes fadeLime {
+  0% {
+    color: lime;
+  }
+  50% {
+    color: #00FF00;
+  }
+  100% {
+    color: white;
+  }
+}*/
+
+@keyframes flash {
+  0% {
+    color: black;
+  }
+  50% {
+    color: green; // Change to green at 50%
+  }
+  100% {
+    color: black;
+  }
+}
+.passingsoon {
+  animation: flash 1.5s infinite;
+}
+body {
+  background-color: black;
+  font-family: Roboto, "sans-serif";
+  justify-content: center;
+}
+.navbar {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #c84687;
+  overflow: hidden;
+  z-index: 999;
+  display: flex;
+  height: 48px;
+}
+.navbar a {
+  color: #fcfcfc;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 800;
+}
+.navbar a:hover {
+  background-color: #a13a6e;
+  color: white;
+}
+input[class="search-container"] {
+  display: block;
+  margin: auto;
+  margin-left: 173px;
+  height: 19px;
+  border-radius: 32px;
+}
+.odometer, .goalodometer {
+  font-size: 30px;
+  color: white;
+  font-weight: 440;
+}
+
+#difference {
+  margin-top: -12px;
+}
+.odometer-parent {
+  text-align: center;
+}
+
+h6,
+h5 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 990;
+  text-align: center;
+}
+h4 {
+  text-align: center;
+  font-weight: 770;
+  color: white;
+}
+
+#user-icon, #user-icon2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90px;
+  height: 90px;
+}
+
+#odometer2.odometer-animating-up .odometer-value {
+  color: lime;
+  font-size: 30px;
+  /* animation: fadeLime 1.9s; */
+}
+#odometer.odometer-animating-up .odometer-value {
+  color: lime;
+  font-size: 30px;
+  /* animation: fadeLime 1.9s; */
+}
+
+#odometer.odometer-animating-down .odometer-value {
+  color: red;
+  font-size: 30px;
+}
+#odometer2.odometer-animating-down .odometer-value {
+  color: red;
+  font-size: 30px;
+}
+
+#username, #username2 {
+  color: white;
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  outline: none;
+  text-align: center;
+  font-size: 15px;
+  background-color: white;
+  border: solid;
+  padding: 3px 50px;
+}
+.inputbar {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 35px;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+img {
+  border: 1.6px solid white;
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+
+/* Battle Windows */
+.flex-container {
+  display: flex;
+}
+.first, .second {
+  flex: 1;
+}
