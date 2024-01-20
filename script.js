@@ -12,3 +12,10 @@ setTimeout(function() {
 console.log("%cStop!", 'color: red')
 console.log("I'd like to tell you that if you import code, you're not going to have fun in this website. Even if it's just a little CSS change. You got that? Or are you just trying to find secrets?")
 console.warn("Website Error: Everyone, evacuate! Some hackerman managed to get into js console!!! RUN RUN!!!!!!!!! ")
+let sab
+let le;
+let the = "Demon Soul";
+
+if (sab === "rav" && le === "en") {
+  console.log("Variable: ??? set to ????? ????")
+}
