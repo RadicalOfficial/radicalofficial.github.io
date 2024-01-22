@@ -5,6 +5,10 @@
   let userdata;
   let status;
   let userstatus;
+  let usermii;
+  let clearcon;
+  let ninjidata;
+  let ninjistatus;
 
   if (!Scratch.extensions.unsandboxed) {
     throw new Error('Sandbox Error: This must be unsandboxed. Thank you! - Radical');
@@ -16,6 +20,10 @@
         name: 'Super Mario Maker 2',
         color1: "#af0000",
         blocks: [
+          {
+            blockType: "label",
+            text: "Level Data"
+          },
           {
             opcode: 'getlevel',
             blockType: Scratch.BlockType.COMMAND,
@@ -33,6 +41,11 @@
             text: 'Level Status Code is Successful?',
           },
           {
+            opcode: 'clearcon',
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: 'Level has Clear Condition?'
+          },
+          {
             opcode: 'getdatas',
             blockType: Scratch.BlockType.REPORTER,
             text: 'Get Level [DATA]',
@@ -43,6 +56,10 @@
                 menu: "DATA_MENU",
               }
             }
+          },
+          {
+            blockType: "label",
+            text: "User Data"
           },
           {
             opcode: 'getuser',
@@ -71,16 +88,71 @@
                 menu: "USER_MENU"
               }
             }
+          },
+          {
+            blockType: "label",
+            text: "Level Image Render"
+          },
+          {
+            opcode: 'getlevelimage',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'get Level Image [LEVEL]',
+            arguments: {
+              LEVEL: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: '91CMPM7LF',
+              }
+            }
+          },
+          {
+            opcode: 'getmiiimage',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'get Mii Image',
+            hideFromPalette: true,
+          },
+          {
+            blockType: "label",
+            text: "Ninji Speedrun Data"
+          },
+          {
+            opcode: 'getlatestninjis',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'get Latest Ninji Speedruns'
+          },
+          {
+            opcode: 'ninjistatus',
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: 'Ninji Speedrun Status Code is Successful?'
+          },
+          {
+            opcode: 'ninjidex',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'get Ninji Speedrun by index [COURSE]\'s [INFO]',
+            arguments: {
+              COURSE: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 1,
+              },
+              INFO: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'name',
+                menu: "NINJI_MENU"
+              }
+            }
           }
         ],
         menus: {
           DATA_MENU: {
             acceptReporters: true,
-            items: ['title', 'description', 'author', 'courseid', 'uploaded', 'gamestyle', 'theme', 'difficulty', 'tags', 'comments', 'likes', 'clearrate', 'image', 'worldrecord']
+            items: ['title', 'description', 'author', 'courseid', 'uploaded', 'gamestyle', 'theme', 'difficulty', 'tags', 'comments', 'likes', 'clearrate', 'image', 'worldrecord', 'clear condition']
           },
           USER_MENU: {
             acceptReporters: true,
             items: ['region', 'country', 'name', 'last active', 'mii image', 'pose name', 'hat name', 'shirt name', 'pants name', 'courses played', 'courses cleared', 'courses attempted', 'courses deaths', 'likes', 'maker points', 'endless easy highscore', 'endless normal highscore', 'endless expert highscore', 'endless super expert highscore', 'versus rating', 'versus rank', 'versus won', 'versus lost', 'co-op clears', 'co-op plays', 'first clears', 'world records', 'super world clears', 'uploaded levels', 'tags enabled', 'comments enabled', 'employee']
+          },
+          NINJI_MENU: {
+            acceptReporters: true,
+            items: ["name", "description", "upload date", "game style", "theme", "end date", "clear condition"]
           }
         }
       };
@@ -90,6 +162,11 @@
       leveldata = await response.json();
       if (!leveldata.error) {
         status = true;
+        if (!leveldata.clear_condition) {
+          clearcon = false;
+        } else {
+          clearcon = true;
+        }
       } else {
         status = false;
       }
@@ -129,7 +206,15 @@
         case "image":
           return `https://tgrcode.com/mm2/level_thumbnail/${leveldata.course_id}`;
         case "worldrecord":
+          if (!leveldata.world_record_pretty) {
+            return "Uncleared - No World Record"
+          }
           return `${leveldata.world_record_pretty} - ${leveldata.record_holder.name}`;
+        case "clear condition":
+          if (!leveldata.clear_condition) {
+            return "No clear condition for this Level."
+          }
+          return leveldata.clear_condition_name;
       }
     }
     async getuser(args) {
@@ -158,6 +243,9 @@
         case "last active":
           return userdata.last_active_pretty;
         case "mii image":
+          {
+            usermii = userdata.mii_image;
+          }
           return userdata.mii_image;
         case "pose name":
           return userdata.pose_name;
@@ -215,6 +303,85 @@
           return userdata.uploaded_levels;
         case "super world clears":
           return userdata.unique_super_world_clears;
+      }
+    }
+    getlevelimage({ LEVEL }) {
+      console.log("Custom Extension Message: This code is provided by ShovelUtils, I do not own any of this but full credits to TheShovel")
+        Scratch.fetch(`https://tgrcode.com/mm2/level_thumbnail/${LEVEL}`)
+      .then((r) => r.arrayBuffer())
+      .then((arrayBuffer) => {
+        const store = vm.runtime.storage;
+        vm.addCostume(LEVEL + ".PNG", {
+          name: LEVEL + "",
+          asset: new store.Asset(
+            store.AssetType.ImageBitmap,
+            null,
+            store.DataFormat.PNG,
+            new Uint8Array(arrayBuffer),
+            true
+          )
+        })
+      })
+    }
+    getmiiimage() {
+      console.log(usermii)
+      Scratch.fetch('https://corsproxy.io/?', usermii)
+      .then((r) => r.arrayBuffer())
+      .then((arrayBuffer) => {
+        const store = vm.runtime.storage;
+        vm.addCostume("miidata" + ".PNG", {
+          name: "miidata" + "",
+          asset: new store.Asset(
+            store.AssetType.ImageBitmap,
+            null,
+            store.DataFormat.PNG,
+            new Uint8Array(arrayBuffer),
+            true
+          )
+        })
+      })
+    }
+    clearcon() {
+      return clearcon
+    }
+    async getlatestninjis() {
+      const response = await Scratch.fetch("https://tgrcode.com/mm2/ninji_info");
+      ninjidata = await response.json();
+      if (!ninjidata.error) {
+        ninjistatus = true;
+      } else {
+        ninjistatus = false;
+      }
+    }
+    ninjistatus() {
+      return ninjistatus
+    }
+    ninjidex({ COURSE, INFO }) {
+      if (COURSE > 21) {
+        return "Length must be under 21"
+      }
+      if (COURSE < 1) {
+        return "Length must be over 0"
+      }
+      switch (INFO) {
+        case "name":
+          return ninjidata.courses[COURSE - 1].name;
+        case "description":
+          return ninjidata.courses[COURSE - 1].description;
+        case "upload date":
+          return ninjidata.courses[COURSE - 1].uploaded;
+        case "game style":
+          return ninjidata.courses[COURSE - 1].game_style_name;
+        case "theme":
+          return ninjidata.courses[COURSE - 1].theme_name;
+        case "end date":
+          return ninjidata.courses[COURSE - 1].end_time;
+        case "clear condition":
+          if (ninjidata.courses[COURSE - 1].clear_condition === 0) {
+            return false
+          } else {
+            return true
+          }
       }
     }
   }
