@@ -9,3 +9,9 @@ setTimeout(function() {
   years.insertAdjacentHTML('beforebegin', "<h4>Seems like you're using an adblocker. You don't have to turn it off, this is for testing purposes.</h4>")
   console.log('ads blocked?', b)
 }, 200)
+const latestfollower = document.getElementById("latestfo")
+fetch("https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
+.then((r) => r.json())
+.then((data) => {
+  latestfollower.innerHTML = data.username.toString()
+})
