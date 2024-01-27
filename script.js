@@ -19,8 +19,8 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
   throw new Error("Something went wrong nerd.")
 })
 .then((data) => {
-  console.log(data)
-  latestfollower.innerHTML = data.username
+  const datas = JSON.parse(data)
+  latestfollower.innerHTML = datas.username
 })
 .catch((error) => {
   console.error(error)
