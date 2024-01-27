@@ -11,19 +11,14 @@ setTimeout(function() {
 }, 200)
 const latestfollower = document.getElementById("latestfo");
 console.log("Fetching Data... Please wait");
-fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
-.then((r) => {
-  if (r.ok) {
-    return r.json()
-  }
-  throw new Error("Something went wrong nerd.")
+fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/following/?limit=1&offset=0", {
+    method: "GET", // "GET/POST"
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
 })
-.then((data) => {
-  console.log(data);
-  const datas = JSON.parse(data);
-  latestfollower.innerHTML = datas.username
-})
-.catch((error) => {
-  console.error(error)
-  latestfollower.inerHTML = "Something went wrong :/"
-})
+.then(r => r.json())
+.then(r => {
+   console.log('Response', r)
+}).catch(error => console.error('Error', error))
