@@ -20,5 +20,5 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
 .then(r => r.json())
 .then(r => {
   console.log('Response', r)
-  console.log(r.username)
+  console.log(r[0].username)
 }).catch(error => console.error('Error', error))
