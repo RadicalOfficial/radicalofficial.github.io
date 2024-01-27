@@ -22,4 +22,5 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
 })
 .catch((error) => {
   console.error(error)
+  latestfollower.inerHTML = "Something went wrong :/"
 })
