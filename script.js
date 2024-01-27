@@ -10,7 +10,7 @@ setTimeout(function() {
   console.log('ads blocked?', b)
 }, 200)
 const latestfollower = document.getElementById("latestfo")
-fetch("https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
+fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
 .then((r) => {
   if (r.ok) {
     return r.json()
