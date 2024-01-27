@@ -11,7 +11,7 @@ setTimeout(function() {
 }, 200)
 const latestfollower = document.getElementById("latestfo");
 console.log("Fetching Data... Please wait");
-fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/following/?limit=1&offset=0", {
+fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0", {
     method: "GET", // "GET/POST"
     headers: {
         "Content-Type": "application/json"
