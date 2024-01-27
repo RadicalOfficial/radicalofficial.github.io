@@ -16,7 +16,6 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
 })
 .then(r => r.json())
 .then(r => {
