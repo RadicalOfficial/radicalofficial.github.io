@@ -9,8 +9,8 @@ setTimeout(function() {
   years.insertAdjacentHTML('beforebegin', "<h4>Seems like you're using an adblocker. You don't have to turn it off, this is for testing purposes.</h4>")
   console.log('ads blocked?', b)
 }, 200)
-const latestfollower = document.getElementById("latestfo")
-console.log("Fetching Data... Please wait")
+const latestfollower = document.getElementById("latestfo");
+console.log("Fetching Data... Please wait");
 fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
 .then((r) => {
   if (r.ok) {
@@ -19,7 +19,8 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
   throw new Error("Something went wrong nerd.")
 })
 .then((data) => {
-  const datas = JSON.parse(data)
+  console.log(data);
+  const datas = JSON.parse(data);
   latestfollower.innerHTML = datas.username
 })
 .catch((error) => {
