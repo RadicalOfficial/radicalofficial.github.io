@@ -11,7 +11,15 @@ setTimeout(function() {
 }, 200)
 const latestfollower = document.getElementById("latestfo")
 fetch("https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
-.then((r) => r.json())
+.then((r) => {
+  if (r.ok) {
+    return r.json()
+  }
+  throw new Error("Something went wrong nerd.")
+})
 .then((data) => {
   latestfollower.innerHTML = data.username.toString()
+})
+.catch((error) => {
+  console.error(error)
 })
