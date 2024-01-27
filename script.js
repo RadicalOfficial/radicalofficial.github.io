@@ -5,7 +5,8 @@ years.innerHTML = `${d} - <a href='https://scratch.mit.edu/users/Knightbot63/' t
 
 const latestfollower = document.getElementById("latestfo");
 console.log("Fetching Data... Please wait");
-fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0", {
+function updateInfo() {
+    fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0", {
     method: "GET", // "GET/POST"
     headers: {
         "Content-Type": "application/json"
@@ -17,3 +18,5 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
   console.log(r[0].username)
   latestfollower.innerHTML = r[0].username
 }).catch(error => console.error('Error', error))
+}
+setInterval(updateInfo(), 15000)
