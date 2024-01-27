@@ -10,6 +10,7 @@ setTimeout(function() {
   console.log('ads blocked?', b)
 }, 200)
 const latestfollower = document.getElementById("latestfo")
+console.log("Fetching Data... Please wait")
 fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knightbot63/followers/?limit=1&offset=0")
 .then((r) => {
   if (r.ok) {
@@ -18,7 +19,7 @@ fetch("https://api.allorigins.win/raw?url=https://api.scratch.mit.edu/users/Knig
   throw new Error("Something went wrong nerd.")
 })
 .then((data) => {
-  latestfollower.innerHTML = data.username.toString()
+  latestfollower.innerHTML = data.username
 })
 .catch((error) => {
   console.error(error)
