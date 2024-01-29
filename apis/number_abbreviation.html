@@ -30,13 +30,12 @@
 </head>
 
 <body>
-  <pre style="word-wrap: break-word; white-space: pre-wrap;" id="json">
-    {"status": "ok"}
+  <pre style="word-wrap: break-word; white-space: pre-wrap;" id="json">{"status": "ok"}
 </pre>
   <script>
     let params = new URLSearchParams(window.location.search);
     let number = params.get("num");
-    // StackOverflow code thank you! NOTE: This can still get 999,999 to 1000K and not 1M
+    // StackOverflow code thank you!
     var floor=Math.floor, abs=Math.abs, log=Math.log, round=Math.round, min=Math.min;
     var abbrev = ['K', 'M', 'B', "T"];
 
@@ -53,7 +52,8 @@
     }
     console.log(number);
     if (params.has('num')) {
-      document.getElementById("json").innerHTML = `{"number": ${number}, "abbreviation": ${format(number)}}`
+      let jsonData = {"number": number, "abbreviation": format(number)}
+      document.getElementById("json").innerText = JSON.stringify(jsonData)
     }
   </script>
 
