@@ -1,25 +1,65 @@
-<html><head><meta name="color-scheme" content="light dark"><style>
-      @font-face {
-        font-display: swap;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        src: url(chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-Regular.3de58cdb6c0b270199a6.woff2) format('woff2');
-      }
-      @font-face {
-        font-display: swap;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        src: url('chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-SemiBold.b7572ea9d06e3c2f6db7.woff2') format('woff2');
-      }
-      @font-face {
-        font-display: swap;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 800;
-        src: url('chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-ExtraBold.2962aa9997fbc8ec8937.woff2') format('woff2');
-      }
-  </style></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">
-    {"status": "Enter a parameter to get your abbreviated number. Add ?num=ANYNUMBERHERE with ANYNUMBERHERE being any number you want to be abbreviated"}
-</pre></body></html>
+<html>
+
+<head>
+  <meta name="color-scheme" content="light dark">
+  <style>
+    @font-face {
+      font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url(chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-Regular.3de58cdb6c0b270199a6.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      src: url('chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-SemiBold.b7572ea9d06e3c2f6db7.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 800;
+      src: url('chrome-extension://inejiiekmjkmphgjjehhcmkpjncboodn/static/media/Inter-ExtraBold.2962aa9997fbc8ec8937.woff2') format('woff2');
+    }
+  </style>
+</head>
+
+<body>
+  <pre style="word-wrap: break-word; white-space: pre-wrap;" id="json">
+    {"status": "ok"}
+</pre>
+  <script>
+    let params = new URLSearchParams(window.location.search);
+    let number = params.get("num");
+    // StackOverflow code thank you!
+    var floor=Math.floor, abs=Math.abs, log=Math.log, round=Math.round, min=Math.min;
+    var abbrev = ['K', 'M', 'B', "T"];
+
+    function rnd(n, precision) {
+        var prec = 10**precision;
+        return round(n*prec)/prec;
+    }
+
+    function format(n) {
+        var base = floor(log(abs(n))/log(1000));
+        var suffix = abbrev[min(abbrev.length-1, base-1)];
+        base = abbrev.indexOf(suffix) + 1;
+        return suffix ? rnd(n/1000**base,2)+suffix : ''+n;
+    }
+    console.log(number);
+    if (params.has('num')) {
+      document.getElementById("json").innerHTML = `{"number": ${number}, "abbreviation": ${format(number)}}`
+    }
+    else {
+      document.getElementById("json").innerHTML = {"number": number}
+    }
+  </script>
+
+</body>
+
+</html>
