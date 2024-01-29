@@ -30,29 +30,32 @@
 </head>
 
 <body>
-  <pre style="word-wrap: break-word; white-space: pre-wrap;" id="json">{"status": "ok"}
+  <pre style="word-wrap: break-word; white-space: pre-wrap;" id="json">
 </pre>
   <script>
     let params = new URLSearchParams(window.location.search);
     let number = params.get("num");
     // StackOverflow code thank you!
-    var floor=Math.floor, abs=Math.abs, log=Math.log, round=Math.round, min=Math.min;
+    var floor = Math.floor, abs = Math.abs, log = Math.log, round = Math.round, min = Math.min;
     var abbrev = ['K', 'M', 'B', "T"];
 
     function rnd(n, precision) {
-        var prec = 10**precision;
-        return round(n*prec)/prec;
+      var prec = 10 ** precision;
+      return round(n * prec) / prec;
     }
 
     function format(n) {
-        var base = floor(log(abs(n))/log(1000));
-        var suffix = abbrev[min(abbrev.length-1, base-1)];
-        base = abbrev.indexOf(suffix) + 1;
-        return suffix ? rnd(n/1000**base,2)+suffix : ''+n;
+      var base = floor(log(abs(n)) / log(1000));
+      var suffix = abbrev[min(abbrev.length - 1, base - 1)];
+      base = abbrev.indexOf(suffix) + 1;
+      return suffix ? rnd(n / 1000 ** base, 2) + suffix : '' + n;
     }
     console.log(number);
     if (params.has('num')) {
-      let jsonData = {"number": number, "abbreviation": format(number)}
+      jsonData = {"number": number, "abbreviation": format(number)}
+      document.getElementById("json").innerText = JSON.stringify(jsonData)
+    } else {
+      jsonData = {"status": "Online!", "help": "https://scratch.mit.edu/users/Knightbot63/"};
       document.getElementById("json").innerText = JSON.stringify(jsonData)
     }
   </script>
