@@ -8,9 +8,39 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="icon" type="image/x-icon" href="https://cdn2.scratch.mit.edu/get_image/user/92120022_60x60.png">
+  <style>
+.noscript {
+  padding: 20px;
+  background-color: red;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+
 </head>
 
 <body>
+  <noscript>
+
+<p>Click on the "x" symbol to close the alert message.</p>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Seems like you have JavaScript disabled. That is fine but some functions in this website won't work without it!
+</div>
+  </noscript>
   <img src="https://cdn2.scratch.mit.edu/get_image/user/92120022_360x360.png" alt="Scratch Logo" title="heehee" sizes="5px">
   <h2>Hello! Welcome to my website!</h2>
   <p>My name is Radical. I code in Scratch, Python, HTML, CSS and JS.</p>
