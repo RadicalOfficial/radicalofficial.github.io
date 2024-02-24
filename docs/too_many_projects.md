@@ -27,4 +27,4 @@ I really didn't know what to add or what type of genre the game should be. Since
 I have to write a Career Research Draft/Essay on what I'm going to do as a career by going to specific colleges like Tech. <br>
 ...I just don't know what to write about
 # Conclusion
-As of July 2023, I have been mostly inactive on Scratch but I'm active on the unmoderated chat site.
+As of July 2023, I have been mostly inactive on Scratch but I'm active on the unmoderated chat site. But I can be active on Scratch from time-to-time
