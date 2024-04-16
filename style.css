@@ -3,8 +3,23 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
-  border-radius: 360px;
+  border: 4px white solid;
+  border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+
+  animation: 4s rotate linear infinite;
 }
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body {
   background-color: black;
   font-family: "Roboto"
@@ -71,4 +86,35 @@ h1, h2, h3, h4, h5, h6, p, span {
 a {
   color: #096ab3;
   text-decoration: none;
+}
+.helpbutton {
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-around; /* Center the items horizontally */
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 36px; /* Adjust size as needed */
+  font-weight: bold; /* Make the number bold */
+  margin-bottom: 5px; /* Add some space between number and text */
+}
+
+.countdown-text {
+  display: block;
+  font-size: 18px;
+  text-align: center; /* Center the text */
 }
