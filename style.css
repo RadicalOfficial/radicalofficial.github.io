@@ -118,3 +118,41 @@ a {
   font-size: 18px;
   text-align: center; /* Center the text */
 }
+
+
+.noscript {
+  padding: 16px;
+  display: inline-block;
+  background-color: #ff2121;
+  width: 99%;
+  left: -9px;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: black;
+}
+    
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+.gamepage {
+  h3 {
+    letter-spacing: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}

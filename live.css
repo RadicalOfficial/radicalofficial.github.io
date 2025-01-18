@@ -36,11 +36,12 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #c84687;
+  background-color: #0c0096db;
   overflow: hidden;
   z-index: 999;
   display: flex;
   height: 48px;
+  border-bottom: 3.77px solid white; 
 }
 .navbar a {
   color: #fcfcfc;
@@ -51,7 +52,7 @@ body {
   font-weight: 800;
 }
 .navbar a:hover {
-  background-color: #a13a6e;
+  background-color: #0300a5;
   color: white;
 }
 input[class="search-container"] {
