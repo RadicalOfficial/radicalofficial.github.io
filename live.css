@@ -15,7 +15,7 @@
     color: black;
   }
   50% {
-    color: green; // Change to green at 50%
+    color: green; /* Change to green at 50% */
   }
   100% {
     color: black;
@@ -151,9 +151,6 @@ button {
 button:hover {
   background-color: #e6e6e6;
   cursor: pointer;
-}
-img {
-  border: 1.6px solid white;
 }
 
 .snowflake {

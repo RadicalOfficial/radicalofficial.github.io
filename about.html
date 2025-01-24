@@ -4,15 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Radical/Knightbot63's Socials</title>
+  <title>About Radical/Knightbot63</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel="icon" type="image/x-icon" href="https://cdn2.scratch.mit.edu/get_image/user/92120022_60x60.png">
-   <link rel="stylesheet" href="odometer-theme-default.css" />
+  <link rel="stylesheet" href="odometer-theme-default.css" />
   <link href="live.css" rel="stylesheet" type="text/css" />
   <style>
-</style>
+    .container {
+      display: flex;
+      align-items: center;
+    }
 
+    .portrait {
+      margin-right: 20px;
+    }
+
+    .left-align-div {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,23 +31,41 @@
     <a href="/">Homepage</a>
     <a href="/socials">Socials</a>
   </div><br><br>
-  <h3 style="font-weight: 990;">About Knightbot63/RadicalOfficial</h3>
-  <div class="gamepage">
-    <h3>Under Construction</h3>
+
+  <div class="container">
+    <img class="portrait" src="https://cdn2.scratch.mit.edu/get_image/user/92120022_240x240.png" alt="Portrait">
+    <div class="left-align-div">
+      <h1 style="font-weight: 0; text-align: left;">Hi there!</h1>
+      <p style="font-weight: 0; text-align: left;">I am a boy who loves programming and drawing pixels for fun.</p>
+      <p>I am working on a game called "The Adventures of Caseoh" featuring the Twitch Streamer Caseoh!</p><br>
+      <p style="font-weight: bolder; text-align: center;">HOW ITS MADE:</p>
+      <p id="months">Godot Engine, </p>
+    </div>
   </div>
-  <div class="loopinggif">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com//media/sounds/caseoh-yeahhhhhhhhhhhhhhhhhhhhhhhhhhh.mp3')">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com/media/sounds/caseoh-i-am-not-shaped-like-a-ferris-wheel.mp3')">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com//media/sounds/caseoh-what-is-that.mp3')">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com//media/sounds/spookytime-caseoh.mp3')">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com//media/sounds/caseoh-yeahhhhhhhhhhhhhhhhhhhhhhhhhhh.mp3')">
-    <img src="tsarbomba.gif" alt="Wahooo!" title="SQUIYAH!!" style="image-rendering: pixelated; width: 200px; height: 200px; border: none;" onclick="play('https://www.myinstants.com//media/sounds/caseoh-yeahhhhhhhhhhhhhhhhhhhhhhhhhhh.mp3')">
-  </div>
+
   <footer class="footer">
     <h3 id="yearright" style="font-weight: 90;"></h3>
   </footer>
   <script src="odometer.js"></script>
   <script src="script.js"></script>
+  <script>//Lazy
+
+function monthsSinceDate(date) {
+  const today = new Date();
+  const then = new Date(date);
+
+  let months = (today.getFullYear() - then.getFullYear()) * 12;
+  months += today.getMonth() - then.getMonth();
+  if (today.getDate() < then.getDate()) {
+    months--;
+  }
+
+  return months;
+}
+
+const monthsPassed = monthsSinceDate("2024-07-22");
+document.getElementById("months").innerHTML = `Godot Engine, ${monthsPassed} months of hard work, and more.`
+</script>
 </body>
 
 </html>
