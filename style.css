@@ -166,3 +166,11 @@ footer {
 .loopinggif img {
   width: 70px;
 }
+.bottom-half {
+  display: inline;
+}
+.countdown-spaced {
+  text-align: center;
+  justify-content: space-around;
+  word-spacing: 58px;
+}

