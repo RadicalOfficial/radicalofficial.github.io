@@ -74,7 +74,7 @@ function help() {
 }
 
 function updateCountdown() {
-  const countdownDate = new Date("2025-02-09T12:40:00").getTime();
+  const countdownDate = new Date("2025-03-01T12:00:00").getTime();
   const now = new Date().getTime();
   const distance = countdownDate - now;
 
@@ -158,8 +158,9 @@ function tenderAngel() {
     let second = confirm("Is your OS a Windows OS?\n(Note: It's best to have Windows 10 or higher)");
     if (second) {
       alert('You can now download the latest Windows version. Please click "Get Prototype" again to get the link, then download any version of the EXE files.');
+      confirmed = 1;
     } else {
-      alert("I'm sorry but you need one of these devices to run the prototype.");
+      alert("I'm sorry but you need one of these devices to run the prototype.\n\nWhen the game is somewhat complete, a different download button will appear.");
     }
   }
 }
