@@ -54,9 +54,9 @@
     <div class="upload">
       <h2>Upload now!</h2>
       <p>Choose a file or paste from the clipboard!</p>
-      <form method="POST" enctype="multipart/form-data">
-        <input type="file" accept="image/*"/>
-      </form>
+        <input type="file" accept="image/*" id="image-upload" required />
+        <button type="submit" onclick="uploadImage()">Upload Now!</button>
+      <img id="uploaded-image" style="display: none; margin-top: 20px;"/>
     </div>
   <footer class="footer">
     <h3 id="yearright" style="font-weight: 90;"></h3>

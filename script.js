@@ -242,3 +242,28 @@ function play(audio) {
   const soundeffect = new Audio(audio);
   soundeffect.play();
 }
+async function uploadImage() {
+  const fileInput = document.getElementById('image-upload');
+  const formData = new FormData();
+  console.log(fileInput.files);
+  formData.append('file', fileInput.files[0]);
+  try {
+      const response = await fetch('https://lightflowapi.pythonanywhere.com/upload', {
+          method: 'POST',
+          body: formData,
+      });
+      const result = await response.json();
+      const imageUrl = `https://lightflowapi.pythonanywhere.com/image/${imageId}`;
+      alert("Successfully uploaded image!")
+  } catch (error) {
+      console.error('Error uploading image:', error);
+      alert("Error uploading image!")
+  }
+}
+
+function updateFileName() {
+  const fileInput = document.getElementById('customFile');
+  const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Choose file';
+  const label = document.querySelector('.custom-file-label');
+  label.innerText = fileName;
+}
