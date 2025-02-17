@@ -169,3 +169,32 @@ footer {
 .bottom-half {
   display: inline;
 }
+
+.wavy {
+  position: relative;
+}
+
+.wavy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 2em;
+  text-transform: uppercase;
+  animation: animate 2s ease-in-out infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate {
+  0% {
+      transform: translateY(0px);
+  }
+
+  20% {
+      transform: translateY(-15px);
+  }
+
+  40%,
+  100% {
+      transform: translateY(0px);
+  }
+}
