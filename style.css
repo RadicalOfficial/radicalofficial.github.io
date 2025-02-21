@@ -198,3 +198,11 @@ footer {
       transform: translateY(0px);
   }
 }
+@font-face {
+  font-family: myFirstFont;
+  src: url(mogihaPen.ttf);
+}
+.custom-font {
+  font-family: myFirstFont;
+  color: white;
+}
